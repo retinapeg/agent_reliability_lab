@@ -3,6 +3,7 @@
   "episodes": 2,
   "calls": 4,
   "prompts_reconstructed": 4,
+  "raw_traces_missing": 0,
   "stopped": null,
   "problems": [],
   "passed": true

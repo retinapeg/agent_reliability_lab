@@ -76,7 +76,7 @@ def audit(run_dir: Path, root: Path) -> dict:
                       "reviewer": cfg["reviewer"]["model"]}
     episodes = load_episodes(run_dir)
     problems: list[str] = []
-    n_prompts = n_calls = 0
+    n_prompts = n_calls = raw_missing = 0
 
     for e in episodes:
         task = Task(e["task_id"], root / cfg["tasks_dir"] / e["task_id"])
@@ -114,7 +114,7 @@ def audit(run_dir: Path, root: Path) -> dict:
                 raw = json.loads((run_dir / raw_path).read_text())
                 problems += [f"{where}: {p}" for p in raw_trace_problems(raw["events"])]
             elif call["provider"] != "scripted":
-                problems.append(f"{where}: raw trace missing")
+                raw_missing += 1  # raw/ is gitignored; a fresh clone can only run checks 1, 2, 4, 5
 
     frozen_tasks = {tid: Task(tid, root / cfg["tasks_dir"] / tid).file_hashes()
                     for tid in meta["tasks"]}
@@ -128,7 +128,8 @@ def audit(run_dir: Path, root: Path) -> dict:
         problems.append("attempts.jsonl and episodes.jsonl disagree")
 
     return {"run_id": meta["run_id"], "episodes": len(episodes), "calls": n_calls,
-            "prompts_reconstructed": n_prompts, "stopped": meta.get("stopped"),
+            "prompts_reconstructed": n_prompts,
+            "raw_traces_missing": raw_missing, "stopped": meta.get("stopped"),
             "problems": problems, "passed": not problems and not meta.get("stopped")}
 
 

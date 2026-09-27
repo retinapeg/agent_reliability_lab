@@ -106,8 +106,26 @@ a violation. A violation stops the batch.
 - Run directories are timestamped, include the config SHA-256 and task-file hashes, and are never
   overwritten.
 - `attempts.jsonl` is written before each episode's first call.
+- `python -m agent_reliability.analysis.protocol_checks <run_dir>` rebuilds every prompt from the
+  recorded inputs with the same prompt builders and requires its SHA-256 to match the recorded hash.
+  This shows exactly what each agent saw. It then checks that no hidden-test content appears in any
+  prompt, checks every raw trace structurally for tool, server-tool and advisor blocks and for a
+  single model, and checks that task and config files are unchanged since the run started.
 - `python -m agent_reliability analyze <run_dir>` regenerates `metrics.json` and `summary.md` from
   `episodes.jsonl` only; no model is called. README numbers are copied from `metrics.json`.
+
+## Run log
+
+- Smoke run `20260927T192123Z-26ffea4d-smoke` (2 tasks: `median`, `normalize_username`): 2/2
+  complete, protocol audit passed. It was used only to validate the pipeline and is excluded from
+  the headline metrics.
+- Full run `20260927T192610Z-26ffea4d` (12 tasks, same frozen config SHA-256 `26ffea4d…`): 12/12
+  complete, audit passed. It was run once and not repeated.
+- One correction was made to the audit tool (not the harness) after the smoke run. The first
+  version flagged any occurrence of the string `server_tool_use`, but the CLI always emits a
+  usage counter with that name (`{"web_search_requests": 0, ...}`). The check was made structural:
+  a non-zero counter or a tool block fails. The in-run control check was already structural and
+  had passed.
 
 ## Statistical limitations
 

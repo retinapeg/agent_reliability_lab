@@ -1,0 +1,12 @@
+{"episode_id": "camel_to_snake-r0", "started_at": "2026-09-27T19:26:11+00:00", "task_id": "camel_to_snake"}
+{"episode_id": "chunked-r0", "started_at": "2026-09-27T19:26:58+00:00", "task_id": "chunked"}
+{"episode_id": "format_cents-r0", "started_at": "2026-09-27T19:27:15+00:00", "task_id": "format_cents"}
+{"episode_id": "isbn10-r0", "started_at": "2026-09-27T19:27:28+00:00", "task_id": "isbn10"}
+{"episode_id": "median-r0", "started_at": "2026-09-27T19:28:14+00:00", "task_id": "median"}
+{"episode_id": "merge_intervals-r0", "started_at": "2026-09-27T19:28:30+00:00", "task_id": "merge_intervals"}
+{"episode_id": "normalize_username-r0", "started_at": "2026-09-27T19:28:51+00:00", "task_id": "normalize_username"}
+{"episode_id": "parse_duration-r0", "started_at": "2026-09-27T19:31:15+00:00", "task_id": "parse_duration"}
+{"episode_id": "roman_to_int-r0", "started_at": "2026-09-27T19:32:29+00:00", "task_id": "roman_to_int"}
+{"episode_id": "slugify-r0", "started_at": "2026-09-27T19:34:26+00:00", "task_id": "slugify"}
+{"episode_id": "truncate_words-r0", "started_at": "2026-09-27T19:35:38+00:00", "task_id": "truncate_words"}
+{"episode_id": "word_frequencies-r0", "started_at": "2026-09-27T19:38:53+00:00", "task_id": "word_frequencies"}
