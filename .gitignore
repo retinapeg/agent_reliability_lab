@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+*.egg-info/
+# Full CLI event streams carry session IDs and local paths (same policy as agentic-physics-bench).
+results/runs/*/raw/
