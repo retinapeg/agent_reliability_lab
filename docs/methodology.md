@@ -126,6 +126,9 @@ a violation. A violation stops the batch.
   usage counter with that name (`{"web_search_requests": 0, ...}`). The check was made structural:
   a non-zero counter or a tool block fails. The in-run control check was already structural and
   had passed.
+- After the full run, the audit tool was changed to report missing raw traces (`raw/` is gitignored,
+  so a fresh clone lacks it) instead of failing on them. Both runs were re-audited afterwards and
+  passed with 0 raw traces missing.
 
 ## Statistical limitations
 
