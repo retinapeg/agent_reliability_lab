@@ -1,0 +1,9 @@
+{
+  "run_id": "20260927T192123Z-26ffea4d-smoke",
+  "episodes": 2,
+  "calls": 4,
+  "prompts_reconstructed": 4,
+  "stopped": null,
+  "problems": [],
+  "passed": true
+}

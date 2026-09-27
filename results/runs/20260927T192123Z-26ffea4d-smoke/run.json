@@ -1,0 +1,57 @@
+{
+  "config": {
+    "coder": {
+      "model": "haiku",
+      "provider": "claude_cli",
+      "timeout_s": 300
+    },
+    "experiment": "coding_cross_review",
+    "flag_rule": {
+      "min_confidence": 0.6,
+      "severities": [
+        "high",
+        "medium"
+      ]
+    },
+    "max_retries": 1,
+    "repetitions": 1,
+    "reviewer": {
+      "model": "sonnet",
+      "provider": "claude_cli",
+      "timeout_s": 300
+    },
+    "revision": true,
+    "task_ids": null,
+    "tasks_dir": "experiments/coding_cross_review/tasks"
+  },
+  "config_path": "configs/cross_review_v1.json",
+  "config_sha256": "26ffea4db274ff809b4373b8a550b9437979b38836961fb7de4dd8168683f600",
+  "environment": {
+    "claude_cli": "2.1.283 (Claude Code)",
+    "codex_cli": "codex-cli 0.154.0",
+    "lab_git_dirty": false,
+    "lab_git_sha": "3f735c448135bee762e8357d6ec9f39fcf5ce01f",
+    "platform": "macOS-26.5-arm64-arm-64bit",
+    "python": "3.11.5"
+  },
+  "finished_at": "2026-09-27T19:24:09+00:00",
+  "run_id": "20260927T192123Z-26ffea4d-smoke",
+  "started_at": "2026-09-27T19:21:23+00:00",
+  "stopped": null,
+  "tasks": {
+    "median": {
+      "reference.py": "3ae2906ac00ad79e87f8663e7617215e4e0d4e2d54196a23206891664fccdc23",
+      "spec.md": "b2e7fe0ff7647cf68a577a396eb525f7c49e7f579e8e798b2b73445ce75e91a6",
+      "starter.py": "18fc9a2dac5dc442dafce8e84dc09dfa7d6577c8f601776d28e35543cfd42d06",
+      "test_hidden.py": "cab820db2bad98ad8a4038c2fb6bea78627ed0c785ab5c47b71027ad45db9abb",
+      "test_visible.py": "adebb5f95e6c3f6f82ad324ea0342b2ad313804b3727e472979f6092f2d41cd0"
+    },
+    "normalize_username": {
+      "reference.py": "e2eea89d6d5df021d6257f3dd58c412bfd8cd1f906e00d4aa1e8a01de21a79a6",
+      "spec.md": "4ed2a137f02c4a5943b1c4b47ecc465f55a2b7728c0d46448866556c413d3ff0",
+      "starter.py": "105a2c219ad6f21b684a4c7408d1b87882dda05b99def86ca69e5031dc999da1",
+      "test_hidden.py": "fe93751177ab368e9f38cacb7b03943004d9fd105de097116673841e4b6cfbcd",
+      "test_visible.py": "524441249f0c2e57cd8f79cb3b11e3a439504338d55273bdb975dabe14c178a3"
+    }
+  }
+}

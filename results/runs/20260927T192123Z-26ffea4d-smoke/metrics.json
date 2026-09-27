@@ -1,0 +1,113 @@
+{
+  "call_failures": {},
+  "calls": 4,
+  "code_produced": 2,
+  "complete_episodes": 2,
+  "config_A": {
+    "accepted": 2,
+    "accepted_hidden_fail": 0
+  },
+  "config_B": {
+    "accepted": 2,
+    "accepted_hidden_fail": 0,
+    "rejected_hidden_pass": 0
+  },
+  "config_C": {
+    "accepted": 2,
+    "accepted_hidden_fail": 0,
+    "fixed": 0,
+    "regressed": 0,
+    "revised_hidden_pass": 0,
+    "revised_visible_pass": 0,
+    "revisions_completed": 0,
+    "revisions_triggered": 0
+  },
+  "cost_by_role": {
+    "coder": {
+      "calls": 2,
+      "cost_reported": 2,
+      "list_cost_usd": 0.046888,
+      "seconds": 65.083,
+      "tokens": 15692
+    },
+    "reviewer": {
+      "calls": 2,
+      "cost_reported": 2,
+      "list_cost_usd": 0.111959,
+      "seconds": 98.384,
+      "tokens": 21331
+    }
+  },
+  "episodes": 2,
+  "flag_categories": {},
+  "flagged": 0,
+  "flagged_actionable": 0,
+  "overhead": {
+    "coder_list_cost_usd": 0.046888,
+    "coder_seconds": 65.083,
+    "coder_tokens": 15692,
+    "oversight_list_cost_usd": 0.111959,
+    "oversight_seconds": 98.384,
+    "oversight_tokens": 21331,
+    "seconds_ratio": 1.512,
+    "tokens_ratio": 1.359
+  },
+  "per_task": [
+    {
+      "a_accept": true,
+      "actionable": false,
+      "b_accept": true,
+      "c_accept": true,
+      "c_hidden_pass": true,
+      "categories": [],
+      "code": true,
+      "flagged": false,
+      "hidden_pass": true,
+      "review_outcome": "clean_approve",
+      "reviewed": true,
+      "revised_hidden_pass": null,
+      "revised_visible_pass": null,
+      "revision_triggered": false,
+      "status": "complete",
+      "task_id": "median",
+      "visible_pass": true
+    },
+    {
+      "a_accept": true,
+      "actionable": false,
+      "b_accept": true,
+      "c_accept": true,
+      "c_hidden_pass": true,
+      "categories": [],
+      "code": true,
+      "flagged": false,
+      "hidden_pass": true,
+      "review_outcome": "clean_approve",
+      "reviewed": true,
+      "revised_hidden_pass": null,
+      "revised_visible_pass": null,
+      "revision_triggered": false,
+      "status": "complete",
+      "task_id": "normalize_username",
+      "visible_pass": true
+    }
+  ],
+  "retries": 0,
+  "review_outcomes": {
+    "clean_approve": 2,
+    "confirmed": 0,
+    "missed": 0,
+    "unconfirmed": 0
+  },
+  "reviewed": 2,
+  "status": {
+    "complete": 2
+  },
+  "task_ids": [
+    "median",
+    "normalize_username"
+  ],
+  "tasks": 2,
+  "visible_pass": 2,
+  "visible_pass_hidden_fail": 0
+}
