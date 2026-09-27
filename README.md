@@ -28,8 +28,8 @@ On this 12-task benchmark:
   returned byte-identical code. Accepted solutions that failed hidden tests: 2/12 with tests only,
   0/9 with tests plus review, 1/12 with tests, review and revision.
 - **Overhead:** reviewing cost more than coding. Review took 454 s against 333 s of coding (1.36×)
-  and 114k against 93k CLI-reported tokens (input including cache reads, plus output). Review plus revision came to 1.57× the coding time and
-  1.45× the coding tokens.
+  and 114k against 93k CLI-reported tokens (input including cache reads, plus output). Review
+  plus revision came to 1.57× the coding time and 1.45× the coding tokens.
 - **Validity:** there were 0 provider, system or protocol failures and 0 control violations in 27
   model calls. A post-hoc audit rebuilt all 27 prompts from the recorded inputs, matched each hash,
   and found no hidden-test content in any of them.
