@@ -1,0 +1,10 @@
+{
+  "run_id": "20261003T174659Z-057fbbb0-toolloop-smoke",
+  "episodes": 1,
+  "calls": 7,
+  "prompts_reconstructed": 7,
+  "raw_traces_missing": 0,
+  "stopped": null,
+  "problems": [],
+  "passed": true
+}

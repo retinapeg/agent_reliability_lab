@@ -1,0 +1,52 @@
+{
+  "config": {
+    "coder": {
+      "model": "haiku",
+      "provider": "claude_cli",
+      "timeout_s": 300
+    },
+    "coder_mode": "tool_loop",
+    "experiment": "coding_cross_review",
+    "flag_rule": {
+      "min_confidence": 0.6,
+      "severities": [
+        "high",
+        "medium"
+      ]
+    },
+    "max_retries": 1,
+    "max_tool_steps": 5,
+    "repetitions": 1,
+    "reviewer": {
+      "model": "sonnet",
+      "provider": "claude_cli",
+      "timeout_s": 300
+    },
+    "revision": true,
+    "task_ids": null,
+    "tasks_dir": "experiments/coding_cross_review/tasks"
+  },
+  "config_path": "configs/cross_review_tool_loop_v1.json",
+  "config_sha256": "057fbbb09dd3ece810fa9af34a2ead67ca8a174dc0247fe942d509d42b596267",
+  "environment": {
+    "claude_cli": "2.1.288 (Claude Code)",
+    "codex_cli": "codex-cli 0.154.0",
+    "lab_git_dirty": true,
+    "lab_git_sha": "4b8aaed68bfd0d209ab1ec2aeabd43f7b4f72911",
+    "platform": "macOS-26.5-arm64-arm-64bit",
+    "python": "3.11.5"
+  },
+  "finished_at": "2026-10-03T17:49:13+00:00",
+  "run_id": "20261003T174659Z-057fbbb0-toolloop-smoke",
+  "started_at": "2026-10-03T17:46:59+00:00",
+  "stopped": null,
+  "tasks": {
+    "truncate_words": {
+      "reference.py": "be5c9492efeb4c377170b8e570791306b1f8e39762891dd17994435293e0d619",
+      "spec.md": "7cd6729cf50a2e0afbb932ec2cce89bcb0c87702dc5f698416e85ccf46a917e4",
+      "starter.py": "857a9fcc3a873848b61efbcc282e0874563ed0579125cc338554e4c3dfae0de3",
+      "test_hidden.py": "8c4e40db5e6d9ee800a2b451930985c65824c55af3a818a3abaefce1d1a673c6",
+      "test_visible.py": "c75503f744151aee74c75da8e3369725f3d74659975580a48c131613207b5a98"
+    }
+  }
+}

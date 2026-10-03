@@ -1,0 +1,104 @@
+{
+  "call_failures": {},
+  "calls": 7,
+  "code_produced": 1,
+  "complete_episodes": 1,
+  "config_A": {
+    "accepted": 1,
+    "accepted_hidden_fail": 0
+  },
+  "config_B": {
+    "accepted": 0,
+    "accepted_hidden_fail": 0,
+    "rejected_hidden_pass": 1
+  },
+  "config_C": {
+    "accepted": 1,
+    "accepted_hidden_fail": 0,
+    "fixed": 0,
+    "regressed": 0,
+    "revised_hidden_pass": 1,
+    "revised_visible_pass": 1,
+    "revisions_completed": 1,
+    "revisions_triggered": 1
+  },
+  "cost_by_role": {
+    "coder": {
+      "calls": 5,
+      "cost_reported": 5,
+      "list_cost_usd": 0.074333,
+      "seconds": 67.733,
+      "tokens": 29137
+    },
+    "reviewer": {
+      "calls": 1,
+      "cost_reported": 1,
+      "list_cost_usd": 0.02142,
+      "seconds": 10.143,
+      "tokens": 4065
+    },
+    "reviser": {
+      "calls": 1,
+      "cost_reported": 1,
+      "list_cost_usd": 0.047813,
+      "seconds": 48.111,
+      "tokens": 12141
+    }
+  },
+  "episodes": 1,
+  "flag_categories": {
+    "spec_violation": 1
+  },
+  "flagged": 1,
+  "flagged_actionable": 1,
+  "overhead": {
+    "coder_list_cost_usd": 0.074333,
+    "coder_seconds": 67.733,
+    "coder_tokens": 29137,
+    "oversight_list_cost_usd": 0.069233,
+    "oversight_seconds": 58.254,
+    "oversight_tokens": 16206,
+    "seconds_ratio": 0.86,
+    "tokens_ratio": 0.556
+  },
+  "per_task": [
+    {
+      "a_accept": true,
+      "actionable": true,
+      "b_accept": false,
+      "c_accept": true,
+      "c_hidden_pass": true,
+      "categories": [
+        "spec_violation"
+      ],
+      "code": true,
+      "flagged": true,
+      "hidden_pass": true,
+      "review_outcome": "unconfirmed",
+      "reviewed": true,
+      "revised_hidden_pass": true,
+      "revised_visible_pass": true,
+      "revision_triggered": true,
+      "status": "complete",
+      "task_id": "truncate_words",
+      "visible_pass": true
+    }
+  ],
+  "retries": 0,
+  "review_outcomes": {
+    "clean_approve": 0,
+    "confirmed": 0,
+    "missed": 0,
+    "unconfirmed": 1
+  },
+  "reviewed": 1,
+  "status": {
+    "complete": 1
+  },
+  "task_ids": [
+    "truncate_words"
+  ],
+  "tasks": 1,
+  "visible_pass": 1,
+  "visible_pass_hidden_fail": 0
+}

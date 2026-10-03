@@ -53,6 +53,33 @@ it writes the file, commits and runs tests. This matches institutional-workbench
 writes files" and avoids trusting an agent's own claims about test results. It is a simplification
 of agent-workflow-orchestrator, where CLI agents edit a worktree directly (see Shortcuts).
 
+## Optional tool loop for the coder (`coder_mode: "tool_loop"`)
+
+Added 3 October 2026; used by `configs/cross_review_tool_loop_v1.json`. The first run's config is
+unchanged and still one-shot.
+
+Instead of one call, the coder gets at most 5 steps (`Episode._tool_loop`). Each step is a separate
+stateless model call whose prompt is the spec plus the transcript so far
+(`build_agent_prompt`). The model replies with one `ACTION:` line (`parse_action`), and the
+harness executes it (`Episode._execute`):
+
+| action | what the harness does |
+|---|---|
+| `read_file <name>` | returns the file if the name is exactly `solution.py` or `test_visible.py` (`Workspace.read`), otherwise an error observation |
+| `write_solution` + one code block | replaces `solution.py` in the workspace |
+| `run_tests` | runs the **visible** suite against the current `solution.py` |
+| `finish` | ends the loop |
+
+The model still has no native tools; the "tools" are text actions that the harness interprets.
+Hidden tests are never copied into the workspace, reads use an exact-name allow-list, and
+`run_tests` is hard-wired to the visible suite. Each step's reply and observation are stored in
+`coder.steps`, and each model call in `calls` carries its `step`, so the protocol audit rebuilds
+and hash-checks every step prompt. After the loop, everything is as before: the final
+`solution.py` is frozen and verified deterministically, then reviewed.
+
+Limits: no shell, no multi-file edits, no memory between episodes, and the transcript is replayed
+in full every step (cost grows with steps).
+
 ## Where things happen
 
 | Concern | File | Function |
