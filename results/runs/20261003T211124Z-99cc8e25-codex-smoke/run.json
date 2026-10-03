@@ -1,0 +1,57 @@
+{
+  "config": {
+    "coder": {
+      "model": "gpt-6-sol",
+      "provider": "codex_cli",
+      "timeout_s": 300
+    },
+    "experiment": "coding_cross_review",
+    "flag_rule": {
+      "min_confidence": 0.6,
+      "severities": [
+        "high",
+        "medium"
+      ]
+    },
+    "max_retries": 1,
+    "repetitions": 3,
+    "reviewer": {
+      "model": "claude-sonnet-5",
+      "provider": "claude_cli",
+      "timeout_s": 300
+    },
+    "revision": true,
+    "task_ids": null,
+    "tasks_dir": "experiments/coding_cross_review/tasks"
+  },
+  "config_path": "configs/cross_review_v2_codex.json",
+  "config_sha256": "99cc8e25392a0e8c1276c8f60511dc68eb76a936e449b09c20c5a1474b0a207c",
+  "environment": {
+    "claude_cli": "2.1.288 (Claude Code)",
+    "codex_cli": "codex-cli 0.160.0",
+    "lab_git_dirty": true,
+    "lab_git_sha": "14d3901617a6d47e759be58e985ee9fcc77d4583",
+    "platform": "macOS-26.5-arm64-arm-64bit",
+    "python": "3.11.5"
+  },
+  "finished_at": "2026-10-03T21:14:32+00:00",
+  "run_id": "20261003T211124Z-99cc8e25-codex-smoke",
+  "started_at": "2026-10-03T21:11:24+00:00",
+  "stopped": null,
+  "tasks": {
+    "median": {
+      "reference.py": "3ae2906ac00ad79e87f8663e7617215e4e0d4e2d54196a23206891664fccdc23",
+      "spec.md": "b2e7fe0ff7647cf68a577a396eb525f7c49e7f579e8e798b2b73445ce75e91a6",
+      "starter.py": "18fc9a2dac5dc442dafce8e84dc09dfa7d6577c8f601776d28e35543cfd42d06",
+      "test_hidden.py": "cab820db2bad98ad8a4038c2fb6bea78627ed0c785ab5c47b71027ad45db9abb",
+      "test_visible.py": "adebb5f95e6c3f6f82ad324ea0342b2ad313804b3727e472979f6092f2d41cd0"
+    },
+    "slugify": {
+      "reference.py": "29078a2c93216a8dcdd0010112adfcac13572fa519b978056b75d2a0f628defd",
+      "spec.md": "e8c90e4efc14be8ecec2b0e171cf66b38f0afeda03b24544ecd15ec025b5f0fd",
+      "starter.py": "f5b7dbe286c30c7ab9c2b8a1a544c3603d59efdcf80778c060ade09dabef49c0",
+      "test_hidden.py": "4a58d08b5d8b428f65877b323f63aca3f9801c195df3ca27250a1b45952389f4",
+      "test_visible.py": "230913eaa55f6ff3378e7fccd353a48955c21d76ca3f1acbd4ad02c94ed77651"
+    }
+  }
+}

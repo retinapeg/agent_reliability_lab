@@ -1,0 +1,391 @@
+{
+  "call_costs": [
+    {
+      "api_estimate_usd": 0.014882,
+      "cost_source": "api_estimate",
+      "cost_usd": 0.014882,
+      "episode_id": "slugify-r0",
+      "model": "gpt-6-sol",
+      "no_cache_split": false,
+      "role": "coder",
+      "unpriced_reason": null
+    },
+    {
+      "api_estimate_usd": 0.020175,
+      "cost_source": "cli_reported",
+      "cost_usd": 0.024752,
+      "episode_id": "slugify-r0",
+      "model": "claude-sonnet-5",
+      "no_cache_split": true,
+      "role": "reviewer",
+      "unpriced_reason": null
+    },
+    {
+      "api_estimate_usd": 0.026994,
+      "cost_source": "api_estimate",
+      "cost_usd": 0.026994,
+      "episode_id": "median-r0",
+      "model": "gpt-6-sol",
+      "no_cache_split": false,
+      "role": "coder",
+      "unpriced_reason": null
+    },
+    {
+      "api_estimate_usd": 0.015532,
+      "cost_source": "cli_reported",
+      "cost_usd": 0.017388,
+      "episode_id": "median-r0",
+      "model": "claude-sonnet-5",
+      "no_cache_split": true,
+      "role": "reviewer",
+      "unpriced_reason": null
+    },
+    {
+      "api_estimate_usd": 0.012583,
+      "cost_source": "api_estimate",
+      "cost_usd": 0.012583,
+      "episode_id": "median-r0",
+      "model": "gpt-6-sol",
+      "no_cache_split": false,
+      "role": "reviser",
+      "unpriced_reason": null
+    },
+    {
+      "api_estimate_usd": 0.026852,
+      "cost_source": "api_estimate",
+      "cost_usd": 0.026852,
+      "episode_id": "slugify-r1",
+      "model": "gpt-6-sol",
+      "no_cache_split": false,
+      "role": "coder",
+      "unpriced_reason": null
+    },
+    {
+      "api_estimate_usd": 0.014315,
+      "cost_source": "cli_reported",
+      "cost_usd": 0.016322,
+      "episode_id": "slugify-r1",
+      "model": "claude-sonnet-5",
+      "no_cache_split": true,
+      "role": "reviewer",
+      "unpriced_reason": null
+    },
+    {
+      "api_estimate_usd": 0.008893,
+      "cost_source": "api_estimate",
+      "cost_usd": 0.008893,
+      "episode_id": "median-r1",
+      "model": "gpt-6-sol",
+      "no_cache_split": false,
+      "role": "coder",
+      "unpriced_reason": null
+    },
+    {
+      "api_estimate_usd": 0.012193,
+      "cost_source": "cli_reported",
+      "cost_usd": 0.014048,
+      "episode_id": "median-r1",
+      "model": "claude-sonnet-5",
+      "no_cache_split": true,
+      "role": "reviewer",
+      "unpriced_reason": null
+    },
+    {
+      "api_estimate_usd": 0.024462,
+      "cost_source": "api_estimate",
+      "cost_usd": 0.024462,
+      "episode_id": "median-r1",
+      "model": "gpt-6-sol",
+      "no_cache_split": false,
+      "role": "reviser",
+      "unpriced_reason": null
+    },
+    {
+      "api_estimate_usd": 0.008047,
+      "cost_source": "api_estimate",
+      "cost_usd": 0.008047,
+      "episode_id": "slugify-r2",
+      "model": "gpt-6-sol",
+      "no_cache_split": false,
+      "role": "coder",
+      "unpriced_reason": null
+    },
+    {
+      "api_estimate_usd": 0.017882,
+      "cost_source": "cli_reported",
+      "cost_usd": 0.019888,
+      "episode_id": "slugify-r2",
+      "model": "claude-sonnet-5",
+      "no_cache_split": true,
+      "role": "reviewer",
+      "unpriced_reason": null
+    },
+    {
+      "api_estimate_usd": 0.007633,
+      "cost_source": "api_estimate",
+      "cost_usd": 0.007633,
+      "episode_id": "median-r2",
+      "model": "gpt-6-sol",
+      "no_cache_split": false,
+      "role": "coder",
+      "unpriced_reason": null
+    },
+    {
+      "api_estimate_usd": 0.01572,
+      "cost_source": "cli_reported",
+      "cost_usd": 0.017574,
+      "episode_id": "median-r2",
+      "model": "claude-sonnet-5",
+      "no_cache_split": true,
+      "role": "reviewer",
+      "unpriced_reason": null
+    },
+    {
+      "api_estimate_usd": 0.017255,
+      "cost_source": "api_estimate",
+      "cost_usd": 0.017255,
+      "episode_id": "median-r2",
+      "model": "gpt-6-sol",
+      "no_cache_split": false,
+      "role": "reviser",
+      "unpriced_reason": null
+    }
+  ],
+  "call_failures": {},
+  "calls": 15,
+  "code_produced": 6,
+  "complete_episodes": 6,
+  "config_A": {
+    "accepted": 6,
+    "accepted_hidden_fail": 0
+  },
+  "config_B": {
+    "accepted": 3,
+    "accepted_hidden_fail": 0,
+    "rejected_hidden_pass": 3
+  },
+  "config_C": {
+    "accepted": 6,
+    "accepted_hidden_fail": 0,
+    "fixed": 0,
+    "regressed": 0,
+    "revised_hidden_pass": 3,
+    "revised_visible_pass": 3,
+    "revisions_completed": 3,
+    "revisions_triggered": 3
+  },
+  "cost_by_role": {
+    "coder": {
+      "calls": 6,
+      "calls_priced": 6,
+      "cost_sources": {
+        "api_estimate": 6,
+        "cli_reported": 0,
+        "unpriced": 0
+      },
+      "cost_usd": 0.093301,
+      "seconds": 52.042,
+      "tokens": 77272
+    },
+    "reviewer": {
+      "calls": 6,
+      "calls_priced": 6,
+      "cost_sources": {
+        "api_estimate": 0,
+        "cli_reported": 6,
+        "unpriced": 0
+      },
+      "cost_usd": 0.109972,
+      "seconds": 47.839,
+      "tokens": 28103
+    },
+    "reviser": {
+      "calls": 3,
+      "calls_priced": 3,
+      "cost_sources": {
+        "api_estimate": 3,
+        "cli_reported": 0,
+        "unpriced": 0
+      },
+      "cost_usd": 0.0543,
+      "seconds": 82.436,
+      "tokens": 41154
+    }
+  },
+  "cost_cross_check": {
+    "api_estimate_usd": 0.095817,
+    "calls": 6,
+    "cli_reported_usd": 0.109972,
+    "gap_pct": -12.9,
+    "no_cache_split": 6
+  },
+  "cost_label": "API-equivalent (subscription: no marginal $)",
+  "episodes": 6,
+  "flag_categories": {
+    "edge_case": 3
+  },
+  "flagged": 3,
+  "flagged_actionable": 3,
+  "overhead": {
+    "coder_cost": {
+      "calls": 6,
+      "calls_priced": 6,
+      "cost_usd": 0.093301
+    },
+    "coder_seconds": 52.042,
+    "coder_tokens": 77272,
+    "oversight_cost": {
+      "calls": 9,
+      "calls_priced": 9,
+      "cost_usd": 0.164272
+    },
+    "oversight_seconds": 130.275,
+    "oversight_tokens": 69257,
+    "seconds_ratio": 2.503,
+    "tokens_ratio": 0.896
+  },
+  "per_task": [
+    {
+      "a_accept": true,
+      "actionable": false,
+      "b_accept": true,
+      "c_accept": true,
+      "c_hidden_pass": true,
+      "categories": [],
+      "code": true,
+      "flagged": false,
+      "hidden_pass": true,
+      "review_outcome": "clean_approve",
+      "reviewed": true,
+      "revised_hidden_pass": null,
+      "revised_visible_pass": null,
+      "revision_triggered": false,
+      "status": "complete",
+      "task_id": "slugify",
+      "visible_pass": true
+    },
+    {
+      "a_accept": true,
+      "actionable": true,
+      "b_accept": false,
+      "c_accept": true,
+      "c_hidden_pass": true,
+      "categories": [
+        "edge_case"
+      ],
+      "code": true,
+      "flagged": true,
+      "hidden_pass": true,
+      "review_outcome": "unconfirmed",
+      "reviewed": true,
+      "revised_hidden_pass": true,
+      "revised_visible_pass": true,
+      "revision_triggered": true,
+      "status": "complete",
+      "task_id": "median",
+      "visible_pass": true
+    },
+    {
+      "a_accept": true,
+      "actionable": false,
+      "b_accept": true,
+      "c_accept": true,
+      "c_hidden_pass": true,
+      "categories": [],
+      "code": true,
+      "flagged": false,
+      "hidden_pass": true,
+      "review_outcome": "clean_approve",
+      "reviewed": true,
+      "revised_hidden_pass": null,
+      "revised_visible_pass": null,
+      "revision_triggered": false,
+      "status": "complete",
+      "task_id": "slugify",
+      "visible_pass": true
+    },
+    {
+      "a_accept": true,
+      "actionable": true,
+      "b_accept": false,
+      "c_accept": true,
+      "c_hidden_pass": true,
+      "categories": [
+        "edge_case"
+      ],
+      "code": true,
+      "flagged": true,
+      "hidden_pass": true,
+      "review_outcome": "unconfirmed",
+      "reviewed": true,
+      "revised_hidden_pass": true,
+      "revised_visible_pass": true,
+      "revision_triggered": true,
+      "status": "complete",
+      "task_id": "median",
+      "visible_pass": true
+    },
+    {
+      "a_accept": true,
+      "actionable": false,
+      "b_accept": true,
+      "c_accept": true,
+      "c_hidden_pass": true,
+      "categories": [],
+      "code": true,
+      "flagged": false,
+      "hidden_pass": true,
+      "review_outcome": "clean_approve",
+      "reviewed": true,
+      "revised_hidden_pass": null,
+      "revised_visible_pass": null,
+      "revision_triggered": false,
+      "status": "complete",
+      "task_id": "slugify",
+      "visible_pass": true
+    },
+    {
+      "a_accept": true,
+      "actionable": true,
+      "b_accept": false,
+      "c_accept": true,
+      "c_hidden_pass": true,
+      "categories": [
+        "edge_case"
+      ],
+      "code": true,
+      "flagged": true,
+      "hidden_pass": true,
+      "review_outcome": "unconfirmed",
+      "reviewed": true,
+      "revised_hidden_pass": true,
+      "revised_visible_pass": true,
+      "revision_triggered": true,
+      "status": "complete",
+      "task_id": "median",
+      "visible_pass": true
+    }
+  ],
+  "pricing": {
+    "sha256": "8bf0f526bd8b197143358193844031ba9905fa2aa6384b6df2542583f383de85",
+    "version": "2026-10-03"
+  },
+  "retries": 0,
+  "review_outcomes": {
+    "clean_approve": 3,
+    "confirmed": 0,
+    "missed": 0,
+    "unconfirmed": 3
+  },
+  "reviewed": 6,
+  "status": {
+    "complete": 6
+  },
+  "task_ids": [
+    "median",
+    "slugify"
+  ],
+  "tasks": 2,
+  "visible_pass": 6,
+  "visible_pass_hidden_fail": 0
+}

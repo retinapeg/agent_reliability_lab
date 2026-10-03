@@ -1,0 +1,11 @@
+{
+  "experiment": "coding_cross_review",
+  "tasks_dir": "experiments/coding_cross_review/tasks",
+  "task_ids": null,
+  "repetitions": 3,
+  "coder": {"provider": "codex_cli", "model": "gpt-6-sol", "timeout_s": 300},
+  "reviewer": {"provider": "claude_cli", "model": "claude-sonnet-5", "timeout_s": 300},
+  "flag_rule": {"severities": ["high", "medium"], "min_confidence": 0.6},
+  "revision": true,
+  "max_retries": 1
+}

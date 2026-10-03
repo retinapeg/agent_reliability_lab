@@ -104,6 +104,11 @@ def summarize_claude_events(events: list[dict]) -> dict:
             usage = e.get("usage") or {}
             s["usage"] = {k: usage.get(k) for k in ("input_tokens", "cache_creation_input_tokens",
                                                      "cache_read_input_tokens", "output_tokens")}
+            if isinstance(usage.get("cache_creation"), dict):
+                # 5m and 1h cache writes have different prices; keep the split for costing
+                s["usage"]["cache_creation"] = {
+                    k: usage["cache_creation"].get(k)
+                    for k in ("ephemeral_5m_input_tokens", "ephemeral_1h_input_tokens")}
             s["models_used"] = sorted((e.get("modelUsage") or {}).keys())
             s["iteration_types"] = sorted({str(i.get("type")) for i in usage.get("iterations") or []})
             s["cost"] = e.get("total_cost_usd")
