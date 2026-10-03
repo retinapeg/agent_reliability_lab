@@ -1,0 +1,13 @@
+{
+  "experiment": "coding_cross_review",
+  "tasks_dir": "experiments/coding_cross_review/tasks",
+  "task_ids": null,
+  "repetitions": 1,
+  "coder": {"provider": "claude_cli", "model": "haiku", "timeout_s": 300},
+  "coder_mode": "tool_loop",
+  "max_tool_steps": 5,
+  "reviewer": {"provider": "claude_cli", "model": "sonnet", "timeout_s": 300},
+  "flag_rule": {"severities": ["high", "medium"], "min_confidence": 0.6},
+  "revision": true,
+  "max_retries": 1
+}

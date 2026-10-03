@@ -36,7 +36,11 @@ def cmd_run(args: argparse.Namespace) -> int:
     coder, reviewer = make_agent(cfg["coder"]), make_agent(cfg["reviewer"])
     ecfg = EpisodeConfig(max_retries=cfg.get("max_retries", 1), revision=cfg.get("revision", True),
                          flag_rule=FlagRule(tuple(cfg["flag_rule"]["severities"]),
-                                            cfg["flag_rule"]["min_confidence"]))
+                                            cfg["flag_rule"]["min_confidence"]),
+                         coder_mode=cfg.get("coder_mode", "one_shot"),
+                         max_tool_steps=cfg.get("max_tool_steps", 5))
+    if ecfg.coder_mode not in ("one_shot", "tool_loop") or not 1 <= ecfg.max_tool_steps <= 5:
+        raise SystemExit("coder_mode must be one_shot or tool_loop; max_tool_steps must be 1-5")
     try:
         for rep in range(cfg.get("repetitions", 1)):
             for task in tasks:

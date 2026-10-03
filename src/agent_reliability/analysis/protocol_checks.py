@@ -23,7 +23,7 @@ from pathlib import Path
 
 from ..environments.coding.environment import HIDDEN, VISIBLE, Task
 from ..review.reviewer import FlagRule, Finding, build_review_prompt, build_revision_prompt
-from ..runners.cross_review import build_coder_prompt
+from ..runners.cross_review import TOOLS, build_agent_prompt, build_coder_prompt
 from ..traces.store import load_episodes, sha256_text
 
 
@@ -91,10 +91,23 @@ def audit(run_dir: Path, root: Path) -> dict:
             blocking = [f for f in findings
                         if f.severity in rule.severities and f.confidence >= rule.min_confidence]
             prompts["reviser"] = build_revision_prompt(task.spec, code, blocking)
+        coder = e["coder"] or {}
+        steps = coder.get("steps")
+        if steps is not None:  # tool-loop coder: one prompt per step, rebuilt from recorded steps
+            if len(steps) > coder["max_tool_steps"] or any(s["tool"] not in TOOLS for s in steps):
+                problems.append(f"{e['episode_id']}: tool loop exceeded its step or tool limits")
+            denied = [s["arg"] for s in steps if s["tool"] == "read_file"
+                      and s["observation"].startswith("ERROR")]
+            if denied:
+                problems.append(f"{e['episode_id']}: coder asked for files outside the "
+                                f"allow-list: {denied}")
         for call in e["calls"]:
             n_calls += 1
             where = f"{e['episode_id']}/{call['role']}#{call['attempt']}"
-            prompt = prompts.get(call["role"])
+            if call["role"] == "coder" and steps is not None:
+                prompt = build_agent_prompt(task, steps[:call["step"]], coder["max_tool_steps"])
+            else:
+                prompt = prompts.get(call["role"])
             if prompt is None or sha256_text(prompt) != call["prompt_sha256"]:
                 problems.append(f"{where}: prompt does not reconstruct from recorded inputs")
             else:
@@ -104,7 +117,7 @@ def audit(run_dir: Path, root: Path) -> dict:
                     problems.append(f"{where}: hidden-test content in prompt: {leaked}")
             if call["failure"] == "control_violation" or call["violations"]:
                 problems.append(f"{where}: control violation {call['violations']}")
-            if call["failure"] is None:
+            if call["failure"] is None and call["provider"] != "scripted":
                 models = call.get("models_used") or []
                 want = expected_model[call["role"]]
                 if len(models) != 1 or want not in models[0]:

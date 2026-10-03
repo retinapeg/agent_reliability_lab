@@ -197,7 +197,10 @@ def render_summary(meta: dict, m: dict) -> str:
         "",
         "## 3. Which models and configurations?",
         "",
-        f"- Coder: `{cfg['coder']['provider']}` model `{cfg['coder']['model']}`.",
+        f"- Coder: `{cfg['coder']['provider']}` model `{cfg['coder']['model']}`, mode "
+        f"`{cfg.get('coder_mode', 'one_shot')}`"
+        + (f" (at most {cfg.get('max_tool_steps', 5)} tool steps: read a workspace file, write "
+           "solution.py, run the visible tests)." if cfg.get("coder_mode") == "tool_loop" else "."),
         f"- Reviewer: `{cfg['reviewer']['provider']}` model `{cfg['reviewer']['model']}` "
         "(separate call, no shared context).",
         f"- Models reported by the CLI usage metadata: {', '.join(meta.get('models_observed', [])) or 'n/a'}.",

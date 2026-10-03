@@ -87,6 +87,18 @@ class Workspace:
         _git(path, "commit", "-q", "-m", "baseline")
         self.baseline_sha = _git(path, "rev-parse", "HEAD").strip()
 
+    # The only files a tool-using coder may read. Matched by exact name, never resolved as a path,
+    # so nothing outside the workspace (in particular the hidden tests) is reachable.
+    READABLE = ("solution.py", VISIBLE)
+
+    def read(self, name: str) -> str:
+        if name not in self.READABLE:
+            raise PermissionError(name)
+        return (self.path / name).read_text()
+
+    def write_solution(self, code: str) -> None:
+        (self.path / "solution.py").write_text(code)
+
     def commit_candidate(self, code: str, label: str) -> dict:
         """Freeze `code` as solution.py. Returns sha and diff against the baseline."""
         (self.path / "solution.py").write_text(code)
