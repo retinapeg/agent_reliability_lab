@@ -4,9 +4,9 @@ Does an independent model review catch coding defects that deterministic accepta
 
 **Result:** On 12 small Python tasks, every generated solution passed its visible acceptance tests and 2 of the 12 still failed hidden tests. A separate reviewer model, with no shared context, flagged both of those solutions and one more that the hidden tests did not fault. One bounded revision fixed one of the two confirmed defects; the other revision returned byte-identical code. Review took 1.36× the coding time and 1.23× the coding tokens; review plus revision took 1.57× and 1.45×.
 
-**Why it matters:** Passing deterministic tests did not mean the agent's code was correct. Independent review found the failures the tests missed, but the oversight had its own cost and its own failure modes: an unconfirmable flag and a revision that changed nothing. A verification layer in an agent system is itself a system to evaluate, not a feature to assume helpful. The accept-or-reject decision here stays with deterministic code.
+**Why it matters:** Passing deterministic tests did not mean the agent's code was correct. Independent review found the failures the tests missed, but the oversight had its own cost and its own failure mode: a revision that changed nothing. It also raised one flag the hidden tests could not confirm, which on inspection describes a real spec violation the tests miss. A verification layer in an agent system is itself a system to evaluate, not a feature to assume helpful. Acceptance here is decided in code by a frozen rule (visible tests pass, and in the review configurations no finding above a fixed severity and confidence threshold); no model decides directly.
 
-**Status:** First run complete and frozen (run `20260927T192610Z-26ffea4d`). Platform under active development: later commits added a tool-loop coder and a Codex coder, exercised only in smoke runs.
+**Status:** First run complete and frozen (run `20260927T192610Z-26ffea4d`). The harness is a small standard-library Python package that runs coder → tests → independent review → bounded revision, records every call and audits the run afterwards. Under active development: later commits added a tool-loop coder and a Codex coder, exercised only in smoke runs.
 
 ## The first run
 
@@ -105,7 +105,7 @@ PYTHONPATH=src python3 -m agent_reliability run --config configs/cross_review_v1
 
 Two later smoke runs are committed under `results/runs/` (a one-episode tool-loop run and a
 six-episode run with a Codex coder). They exercise new code paths, are not audited to the same
-standard (the Codex run was made from a dirty tree and has no protocol audit), and do not change
+standard (both smoke runs were made from a dirty tree, and the Codex run also has no protocol audit), and do not change
 the numbers above. In the Codex run all 3 flags were unconfirmed, a reminder that unconfirmed flags
 can be frequent.
 
