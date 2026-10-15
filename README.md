@@ -1,5 +1,12 @@
 # Agent Reliability Lab
 
+## Result
+
+![Hidden bugs, reviewer verdicts, and revision fixes: two defective tasks first, then roman_to_int's false alarm against the hidden tests, then nine clean tasks](docs/result_grid.png)
+
+All 12 solutions passed visible tests, but **2/12 failed hidden tests**; independent review flagged both and revision fixed one, with coding plus review and revision taking **2.6×** the coding-only model time at approximately **$0.85** total reported list-price cost.
+This is a small constructed benchmark, not an estimate of a real-world defect rate.
+
 Does an independent model review catch coding defects that deterministic acceptance tests miss, and what does that oversight cost?
 
 **Result:** On 12 small Python tasks, every generated solution passed its visible acceptance tests and 2 of the 12 still failed hidden tests (a held-out suite, written by the experimenter, that no agent sees). A separate reviewer model, with no shared context, flagged both of those solutions and one more that the hidden tests did not fault. Each flagged solution got one bounded revision: it fixed one of the two confirmed defects, and the revision of the other returned byte-identical code. Review took 1.36× the coding time and 1.23× the coding tokens; review plus revision took 1.57× and 1.45×.
